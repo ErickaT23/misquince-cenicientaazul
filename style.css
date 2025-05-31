@@ -1,5 +1,5 @@
 :root {
-    --font-1: "Imperial Script", cursive;
+    --font-1: "Dancing Script", cursive;
     --font-2: "Cormorant Infant", serif;
     --color-text: SteelBlue;
 }
@@ -28,27 +28,35 @@ body {
 #envelope:hover {
     transform: scale(1.05);
 }
-/* Parte superior del sobre (solapa) */
-#envelope-top {
-    top: 0;
-    border-bottom: none;
-}
-/* Parte inferior del sobre (cuerpo) */
+/* Reglas comunes para ambas mitades */
+#envelope-top,
 #envelope-bottom {
-    bottom: 0;
-    border-top: none;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-#envelope-top, #envelope-bottom {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    background-image: url(/imagenes/sobre.png);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+
+/* Solapa del sobre (parte superior) */
+#envelope-top {
+  top: 0;
+  border-bottom: none;
+  /* Aquí pones la imagen que quieras para la solapa */
+  background-image: url('/imagenes/s-a.jpg');
 }
+
+/* Cuerpo del sobre (parte inferior) */
+#envelope-bottom {
+  bottom: 0;
+  border-top: none;
+  /* Aquí pones la imagen que quieras para el cuerpo */
+  background-image: url('/imagenes/s-b.jpg');
+}
+
 /* Sello del sobre */
 #seal {
     position: absolute;
@@ -120,7 +128,7 @@ body {
     font-style: italic;
     font-size: 70px;
     white-space: nowrap;
-    margin-top: 240px;
+    margin-top: 200px;
     background: linear-gradient(to right, #b29a68, #d4af37, #ffd700, #d4af37, #b29a68);
     -webkit-background-clip: text;
     color: transparent;
@@ -138,13 +146,21 @@ body {
     font-style: italic;
     font-size: 80px;
     white-space: nowrap;
-    margin-top: 360px;
+    margin-top: 400px;
     background: linear-gradient(to right, #b29a68, #d4af37, #ffd700, #d4af37, #b29a68);
     -webkit-background-clip: text;
     color: transparent;
     animation: shine 1.5s infinite linear;
-    padding: 10px;
+    padding: 30px;
 }
+.dress-icon {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    /* Si deseas, puedes añadir un filtro para dar un tinte dorado ligeramente:
+    filter: hue-rotate(45deg) saturate(1.2);
+    */
+  }  
 .section , .section-playlist, .section-filter, .section-quote{
     padding: 0;
     transform: translateY(20px);
@@ -547,6 +563,52 @@ footer {
 .section-logo img{
     margin-top: 0px;
 }
+/* -------------------------------------------------------------------
+   Lluvia de estrellas doradas
+   ------------------------------------------------------------------- */
+   #star-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;    /* Las estrellas no interfieren con clicks */
+    overflow: hidden;
+    z-index: 1;              /* Colócalo por debajo de tu invitación (ajusta si es necesario) */
+  }
+  
+  .star {
+    position: absolute;
+    top: -10px;              /* Empieza justo por encima del viewport */
+    width: 6px;              /* Ajusta tamaño base de la estrella */
+    height: 6px;
+    background-color: #d4af37; /* Color dorado */
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.8), /* Brillo exterior */
+                0 0 4px rgba(255, 223, 100, 0.6);
+    opacity: 0.9;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  /* A cada estrella le asignaremos un retraso y velocidad diferentes vía JS */
+  
+  /* Keyframes que llevan la estrella desde arriba a abajo de la pantalla */
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.9;
+    }
+    80% {
+      opacity: 0.6; /* Pierde algo de brillo justo antes de desaparecer */
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
 /* Media Queries */
 @media (min-width: 768px) and (max-width: 1024px) {
     /* iPad Styles */

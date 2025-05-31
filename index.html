@@ -15,16 +15,16 @@
     <!-- Preconnect and Load Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&amp;family=Imperial+Script&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
 <body>
-
+    <div id="star-container"></div>
     <!-- Sobre de la Invitación -->
     <div id="envelope">
         <div id="envelope-top"></div>
         <div id="seal">
-            <h2 class="fade-in-element visible" style="transition-delay: 0s;">Mis Quince Tita</h2>
+            <h2 class="fade-in-element visible" style="transition-delay: 0s;">Mis Quince Carmencita</h2>
         </div>
         <div id="envelope-bottom"></div>
     </div>
@@ -40,7 +40,7 @@
 
         <!-- 1. Foto de la quinceañera -->
         <div class="section-main fade-in-element">
-            <img src="/imagenes/main.png" alt="Foto de la quinceañera" width="100%">
+            <img src="/imagenes/foto-principal (6).png" alt="Foto de la quinceañera" width="100%">
         </div>
 
         <!-- 2. Fecha de los quinceaños -->
@@ -84,7 +84,7 @@
         <!-- 3 & 4. Bendición y Padres -->
         <div class="section-b fade-in-element">
             <p>Agradecidos con Dios y bajo su bendición, queremos celebrar los quinceaños de nuestra amada princesita.</p>
-            <h1>Lusi Armando</h1>
+            <h1>Luis Armando</h1>
             <h2>&</h2>
             <h1>Alma Edith</h1>
         </div>
@@ -107,7 +107,7 @@
                 colors="primary:#d4af37,secondary:#F0F8FF"
                 style="width:200px;height:200px">
             </lord-icon>
-            <p>Para nosotros es muy importante que confirmes tu asistencia antes del 20 de Julio, o bien indicarnos si no podrás acompañarnos.</p>
+            <p>Para nosotros es muy importante que confirmes tu asistencia antes del 20 de Junio, o bien indicarnos si no podrás acompañarnos.</p>
             <button onclick="confirmarAsistencia()">Confirmar</button>
             <div id="confirmacion"></div>
         </div>
@@ -119,25 +119,6 @@
 
         <!-- 5 & 6. Itinerario -->
         <div class="section fade-in-element">
-            <div class="ceremony fade-in-element">
-                <lord-icon
-                    src="https://cdn.lordicon.com/jqmftaai.json"
-                    trigger="loop"
-                    delay="2000"
-                    stroke="light"
-                    colors="primary:#d4af37,secondary:#F0F8FF"
-                    style="width:200px;height:200px">
-                </lord-icon>
-                <h2>Ceremonia</h2>
-                <p>Pendiente</p>
-                <div class="details">
-                    <div class="time-location">
-                        <span class="time">18:30 hrs</span>
-                    </div>
-                    <p>pendiente</p>
-                    <button type="button" class="direction-button" onclick="elegirAplicacionOtraDireccion()">Cómo llegar</button>
-                </div>
-            </div>
             <div class="party fade-in-element">
                 <lord-icon
                     src="https://cdn.lordicon.com/nsgykrsg.json"
@@ -172,7 +153,7 @@
                 colors="primary:#d4af37,secondary:#F0F8FF"
                 style="width:200px;height:200px">
             </lord-icon>
-            <h2>Lluvia de Sobres</h2>
+            <h2>Lluvia de  Sobres</h2>
             <p>Lo que más queremos es compartir contigo nuestro gran día, pero agradecemos mucho el gesto de un obsequio. Tendremos un cofre en la entrada para que puedas dejar tu sobre con efectivo</p>
             <p>¡Gracias!</p>
         </div>
@@ -200,15 +181,10 @@
         <!-- Dress Code -->
         <div class="section fade-in-element">
             <h2>Dress Code</h2>
-            <lord-icon
-                src="https://cdn.lordicon.com/okgbpdra.json"
-                trigger="loop"
-                delay="2000"
-                stroke="light"
-                colors="primary:#d4af37,secondary:#F0F8FF"
-                style="width:200px;height:200px">
-            </lord-icon>
-            <p>Celeste y azul reservado para la quinceañera</p>
+            <div class="section fade-in-element">
+              <img src="/imagenes/dress-code.png"  alt="Icono Dress Code" class="dress-icon">           
+              <p>Celeste y azul reservado para la quinceañera</p>
+            </div>
         </div>
 
         <!-- Div decorativo -->
@@ -274,5 +250,6 @@
 
     <script src="/loads.js"></script>
     <script src="/script.js"></script>
+    <script src="/starfalls.js"></script>
 </body>
 </html>
