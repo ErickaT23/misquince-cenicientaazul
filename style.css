@@ -153,7 +153,7 @@ body {
     animation: shine 1.5s infinite linear;
     padding: 30px;
 }
-.dress-icon {
+.dress-icon, .nokids-icon{
     width: 200px;
     height: 200px;
     object-fit: contain;
