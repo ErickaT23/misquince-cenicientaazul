@@ -35,7 +35,7 @@ body {
   width: 100%;
   height: 50%;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.216);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,6 +47,7 @@ body {
   border-bottom: none;
   /* Aquí pones la imagen que quieras para la solapa */
   background-image: url('/imagenes/s-a.jpg');
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
 /* Cuerpo del sobre (parte inferior) */
@@ -55,6 +56,7 @@ body {
   border-top: none;
   /* Aquí pones la imagen que quieras para el cuerpo */
   background-image: url('/imagenes/s-b.jpg');
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
 /* Sello del sobre */
