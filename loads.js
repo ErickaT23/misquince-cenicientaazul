@@ -2,7 +2,7 @@
 
 // Hacer disponible el array en window para script.js
 window.guests = [
-  { id: "1", name: "Macarena & Rogelio",   passes: 2 },
+  { id: "1", name: "Macarena & Rogelio", passes: 2 },
   // … resto de invitados
 ];
 
@@ -16,18 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
       ? `¡${guest.name}, están invitados!`
       : `¡${guest.name}, estás invitado!`;
 
-    document.getElementById("nombreInvitado").textContent   = invitText;
-    document.getElementById("cantidadPases").textContent   =
+    document.getElementById("nombreInvitado").textContent = invitText;
+    document.getElementById("cantidadPases").textContent =
       `${guest.passes} ${guest.passes === 1 ? "pase" : "pases"}`;
 
-    // Abrir invitación automáticamente
-    if (typeof abrirInvitacion === "function") abrirInvitacion();
+    // — ELIMINADA la llamada automática a abrirInvitacion() —
   } else {
     // Si no existe el invitado, ocultar la invitación completa
     const invitacion = document.getElementById("invitacion");
     if (invitacion) invitacion.style.display = "none";
   }
 });
-
-
-  
