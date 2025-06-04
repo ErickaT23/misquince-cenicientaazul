@@ -1,6 +1,7 @@
 :root {
     --font-1: "Dancing Script", cursive;
     --font-2: "Cormorant Infant", serif;
+    --font-3:  "Cookie", cursive;
     --color-text: SteelBlue;
 }
 
@@ -355,6 +356,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-top: 30px;
 }
 .section-cerezo::before {
     content: "";
@@ -390,7 +392,7 @@ body {
     color: transparent;
     animation: shine 1.5s infinite linear;
 }
-.section-b h1, .section-b h2, .section-b h3{
+.section-b h1, .section-b h3{
     font-family: var(--font-1);
     padding: 15px;
     font-weight: 400;
@@ -403,8 +405,34 @@ body {
     color: transparent;
     animation: shine 1.5s infinite linear;
 }
-.section h2, .section-playlist h2, .section-gifts h2, .section h3, .section-filter h2, .section-filter h3{
+.section-b h2 {
+    font-family: var(--font-3);
+    padding: 15px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 40px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    background: linear-gradient(to right, #b29a68, #d4af37, #ffd700, #d4af37, #b29a68);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+}
+.section h2, .section-playlist h2, .section-gifts h2, .section-filter h2, .section-filter h3{
     font-family: var(--font-1);
+    padding: 10px;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #b29a68, #d4af37, #ffd700, #d4af37, #b29a68);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 1.5s infinite linear;
+}
+.section h3{
+    font-family: var(--font-3);
     padding: 10px;
     font-weight: 400;
     font-style: italic;
@@ -427,12 +455,14 @@ body {
     -webkit-background-clip: text;
     color: transparent;
     animation: shine 1.5s infinite linear;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }
 .section span{
     font-family: var(--font-2);
     font-style: normal;
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 25px;
     background: linear-gradient(to right, #b29a68, #d4af37, #ffd700, #d4af37, #b29a68);
     -webkit-background-clip: text;
     color: transparent;
@@ -501,6 +531,25 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+.direction-button{
+    background-color: rgb(32, 103, 195);
+    color: #fff;
+    border-radius: 5px;
+    font-family: var(--font-2);
+    padding: 10px;
+    transition: background-color 0.3s;
+    border: none;
+    text-transform: none;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 1.2em;
+    margin-top: 30px;
+    text-decoration: none;
+}
+.direction-button:hover {
+    background-color: steelblue;
+}
 button {
     background-color: rgb(32, 103, 195);
     color: #fff;
@@ -514,7 +563,7 @@ button {
     margin-bottom: 20px;
     font-style: italic;
     font-size: 1.2em;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 button:hover {
     background-color: steelblue;

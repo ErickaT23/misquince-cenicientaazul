@@ -1,6 +1,5 @@
 // loads.js
 
-// Hacer disponible el array en window para script.js
 window.guests = [
   { id: "1", name: "Macarena & Rogelio", passes: 2 },
   // … resto de invitados
@@ -20,10 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("cantidadPases").textContent =
       `${guest.passes} ${guest.passes === 1 ? "pase" : "pases"}`;
 
-    // — ELIMINADA la llamada automática a abrirInvitacion() —
+    // Ya no abrimos el sobre automáticamente:
+    // if (typeof window.abrirInvitacion === "function") window.abrirInvitacion();
   } else {
-    // Si no existe el invitado, ocultar la invitación completa
     const invitacion = document.getElementById("invitacion");
     if (invitacion) invitacion.style.display = "none";
   }
 });
+

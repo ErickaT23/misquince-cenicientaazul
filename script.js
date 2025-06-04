@@ -1,14 +1,7 @@
 // script.js
 
-document.addEventListener('DOMContentLoaded', () => {
-  iniciarContador();
-  cargarDatosInvitado();                 // Ya NO abre el sobre automáticamente
-  initFadeInObserver();
-  document.getElementById('seal')?.addEventListener('click', abrirInvitacion);
-});
-
 // 1. Función para abrir la invitación y reproducir música
-function abrirInvitacion() {
+window.abrirInvitacion = function() {
   const envelope   = document.getElementById('envelope');
   const invitacion = document.getElementById('invitacion');
   if (!envelope || !invitacion) return;
@@ -18,19 +11,18 @@ function abrirInvitacion() {
     envelope.style.display   = 'none';
     invitacion.style.display = 'block';
 
-    // En el mismo clic que abre el sobre, intentamos reproducir la canción:
     const audio = document.getElementById('musica');
     if (audio) {
       audio.play().catch(() => {
-        // Si el navegador lo bloquea, el usuario verá el control <audio controls>
-        // y podrá darle “play” manualmente.
+        // Si el navegador lo bloquea por autoplay, el usuario
+        // podrá darle play manualmente al <audio controls>.
       });
     }
   }, 1000);
-}
+};
 
 // 2. Contador regresivo hasta la fecha del evento
-function iniciarContador() {
+window.iniciarContador = function() {
   const fechaEvento = new Date('August 02, 2025 00:00:00').getTime();
   setInterval(() => {
     const ahora     = Date.now();
@@ -45,26 +37,25 @@ function iniciarContador() {
     document.getElementById('minutos').innerText = minutos;
     document.getElementById('segundos').innerText= segundos;
   }, 1000);
-}
+};
 
-// 3. Cargar datos del invitado actual según ?id=   (SIN abrir invitación)
-function cargarDatosInvitado() {
+// 3. Cargar datos del invitado actual según ?id= (SIN abrir invitación)
+window.cargarDatosInvitado = function() {
   const params = new URLSearchParams(window.location.search);
   const id     = params.get('id');
   if (!id) return;
 
   const invitado = window.guests?.find(g => g.id === id);
   if (invitado) {
-    // Solo mostramos nombre y pases, pero NO llamamos a abrirInvitacion()
     document.getElementById('nombreInvitado').innerText  = invitado.name;
     document.getElementById('cantidadPases').innerText  = `Pases: ${invitado.passes}`;
   } else {
     console.warn(`Invitado con id=${id} no encontrado`);
   }
-}
+};
 
 // 4. Observer para efecto fade-in al hacer scroll
-function initFadeInObserver() {
+window.initFadeInObserver = function() {
   const elems = document.querySelectorAll('.fade-in-element');
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -75,34 +66,52 @@ function initFadeInObserver() {
     });
   }, { threshold: 0.5 });
   elems.forEach(el => observer.observe(el));
-}
+};
 
-// (Opcionales) Lightbox, mapas y confirmación si las necesitas:
-function changePhoto(element) {
+// 5. Lightbox, mapas y confirmación de asistencia
+window.changePhoto = function(element) {
   const modal = document.getElementById('photo-modal');
   const img   = document.getElementById('main-photo-modal');
   if (img) img.src = element.src;
   if (modal) modal.style.display = 'flex';
-}
-function closeModal(event) {
+};
+
+window.closeModal = function(event) {
   if (!event || event.target.id === 'photo-modal' || event.target.classList.contains('close')) {
     document.getElementById('photo-modal').style.display = 'none';
   }
-}
-function confirmarAsistencia() {
+};
+
+window.confirmarAsistencia = function() {
   const nombreElem = document.getElementById('nombreInvitado');
   const pasesElem  = document.getElementById('cantidadPases');
   const nombre = nombreElem?.innerText || '';
   const pases  = pasesElem?.innerText.replace('Pases: ', '') || '';
-  const msg    = `Hola, soy ${nombre} y confirmo mi asistencia con ${pases} pases para la fiesta de quince años.`;
+  const msg    = `Hola, soy ${nombre} y confirmo mi asistencia con ${pases} pases para la fiesta de quince años de Tita.`;
   window.open(`https://api.whatsapp.com/send?phone=50247696714&text=${encodeURIComponent(msg)}`, '_blank');
-}
-function elegirAplicacion() {
-  window.open('https://maps.app.goo.gl/dfD9cMEbSAdn56qV8','_blank');
-  setTimeout(() => window.open('https://waze.com/ul?ll=14.558065,-90.729567&navigate=yes','_blank'),1000);
-}
-function elegirAplicacionOtraDirección() {
-  window.open('https://maps.app.goo.gl/x1VEyzHxdwP7FMkX6','_blank');
-  setTimeout(() => window.open('https://ul.waze.com/ul?venue_id=176619666.1766065588.2060019','_blank'),1000);
-}
+};
+
+window.elegirAplicacion = function() {
+  window.open('https://maps.app.goo.gl/JqZZxY2Dtqj6D4xK7','_blank');
+  setTimeout(() => window.open(
+    'https://www.waze.com/en/live-map/directions/hotel-barcelo-guatemala-7-avenida-pista-derecha-15-45-zona-9,-guatemala?place=w.176619666.1766065588.2060019',
+    '_blank'
+  ), 1000);
+};
+
+window.elegirAplicacionOtraDirección = function() {
+  window.open('https://maps.app.goo.gl/JqZZxY2Dtqj6D4xK7','_blank');
+  setTimeout(() => window.open(
+    'https://www.waze.com/en/live-map/directions/hotel-barcelo-guatemala-7-avenida-pista-derecha-15-45-zona-9,-guatemala?place=w.176619666.1766065588.2060019',
+    '_blank'
+  ), 1000);
+};
+
+// Inicialización al cargar el DOM
+document.addEventListener('DOMContentLoaded', () => {
+  window.iniciarContador();
+  window.cargarDatosInvitado();  // Sólo carga nombre y pases, no abre el sobre
+  window.initFadeInObserver();
+  document.getElementById('seal')?.addEventListener('click', window.abrirInvitacion);
+});
 
