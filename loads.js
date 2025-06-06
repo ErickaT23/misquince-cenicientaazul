@@ -101,7 +101,8 @@ window.guests = [
   { id: "98", name: "Carolina y Alex", passes: 2, gender: "mixto" },
   { id: "99", name: "Marisol y Oswaldo", passes: 2, gender: "mixto" },
   { id: "100", name: "Tio Leonel y Domy", passes: 2, gender: "mixto" },
-  { id: "101", name: "Fernando Sarazua", passes: 1, gender: "masculino" }
+  { id: "101", name: "Fernando Sarazua", passes: 1, gender: "masculino" },
+  { id: "102", name: "Luis, Tita & Edith", passes: 3, gener: "mixto" }
 ];
 
 
