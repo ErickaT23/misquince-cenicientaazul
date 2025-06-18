@@ -102,13 +102,15 @@ window.guests = [
   { id: "99", name: "Marisol y Oswaldo", passes: 2, gender: "mixto" },
   { id: "100", name: "Tio Leonel y Domy", passes: 2, gender: "mixto" },
   { id: "101", name: "Fernando Sarazua", passes: 1, gender: "masculino" },
-  { id: "102", name: "Luis, Tita & Edith", passes: 3, gener: "mixto" },
-  { id: "103", name: "Alyson", passes: 1, gener: "femenino" },
-  { id: "104", name: "Ángela", passes: 1, gener: "femenino" },
-  { id: "105", name: "Luis y Francisco", passes: 2, gener: "masculino" },
-  { id: "106", name: "Alejandro y Rene", passes: 2, gener: "masculino" },
-  { id: "107", name: "Henry, Esposa y tía María", passes: 3, gener: "mixto" },
-  { id: "108", name: "Fabiola", passes: 2, gener: "mixto" }
+  { id: "102", name: "Luis, Tita & Edith", passes: 3, gedner: "mixto" },
+  { id: "103", name: "Alyson", passes: 1, gender: "femenino" },
+  { id: "104", name: "Ángela", passes: 1, gedner: "femenino" },
+  { id: "105", name: "Luis y Francisco", passes: 2, gender: "masculino" },
+  { id: "106", name: "Alejandro y Rene", passes: 2, gender: "masculino" },
+  { id: "107", name: "Henry, Esposa y tía María", passes: 3, gender: "mixto" },
+  { id: "108", name: "Fabiola", passes: 2, gender: "mixto" },
+  { id: "109", name: "Mia", passes: 1, gender: "femenino" },
+  { id: "110", name: "Astrid", passes: 1, gennder: "femenino" }
 ];
 
 
